@@ -1,0 +1,32 @@
+server:
+  port: 8090
+  servlet:
+    context-path:
+spring:
+  datasource: 
+   type: com.alibaba.druid.pool.DruidDataSource
+   driver-class-name: com.mysql.jdbc.Driver
+   url: jdbc:mysql://127.0.0.1:3306/club?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+   username: root
+   password: root
+    #引入mvc配置
+  mvc:        
+    view:
+      prefix: /WEB-INF/     # /默认代表根目录 src/main/webapp
+      suffix: .jsp    
+mybatis:
+  type-aliases-package: com.xd.pojo
+  mapper-locations: classpath:/mybatis/mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+#mybatis-plus配置
+mybatis-plus:
+  type-aliases-package: com.xd.pojo
+  mapper-locations: classpath:/mybatis/mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true  #自动开启驼峰规则映射
+    
+#引入日志
+logging:
+  level:
+    com.xd.mapper: debug   

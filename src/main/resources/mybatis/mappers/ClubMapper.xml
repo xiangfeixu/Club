@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xd.mapper.ClubMapper">
+<select id="findAll" resultType="com.xd.pojo.Club">
+   select id,name,charger,type,founded,number,member from club
+</select>
+
+<update id="updateById">
+   update club set club.name=#{name},club.charger=#{charger},
+          club.number=#{number},club.member=#{member},club.note=#{note} where id=#{id}
+</update>
+<select id="selectMemberById" resultType="Integer">
+   select member from club where id=#{id}
+</select>
+<select id="selectClubName" resultType="String">
+ select name from club
+</select>
+</mapper>
